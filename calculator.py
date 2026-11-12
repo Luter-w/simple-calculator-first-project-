@@ -1,9 +1,16 @@
+def get_number(prompt):
+    while True:
+        try:
+            number = float(input(prompt))
+            break
+        except ValueError:
+            print("Ошибка: нужно ввести именно число!")
+    return number
+
+
 while True:
-    choice = input("Нажмите Enter, чтобы продолжить, или введите 'Exit' для выхода: ")
-    if choice == "Exit":
-        break
-    first_number = float(input("Введите первое число: "))
-    second_number = float(input("Введите второе число: "))
+    first_number = get_number("Введите первое число: ")
+    second_number = get_number("Введите второе число: ")
     operation = input("Выберите доступную операцию: [+, -, *, /]: ")
     operation = operation.strip()
     if operation in ('+', '-', '*', '/'):
@@ -22,3 +29,6 @@ while True:
         print(res)
     else:
         print("Неверная форма ввода!")
+    choice = input("Нажмите Enter, чтобы продолжить, или введите 'Exit' для выхода: ")
+    if choice.strip().lower() == "exit":
+        break
