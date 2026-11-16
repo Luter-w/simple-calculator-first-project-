@@ -7,7 +7,7 @@ class Calculator(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Калькулятор")
-        self.resize(340, 420)
+        self.resize(160, 200)
 
         self.num1_input = QLineEdit()
         self.num1_input.setPlaceholderText("Первое число")
@@ -38,6 +38,47 @@ class Calculator(QWidget):
         layout.addWidget(self.result_label)
         
         self.setLayout(layout)
+
+        self.setStyleSheet("""
+            QWidget {
+                background-color: #1e1e2e;
+                color: #cdd6f4;
+                font-family: 'Segoe UI', Arial, sans-serif;
+                font-size: 15px;
+            }
+            QLineEdit {
+                background-color: #313244;
+                border: 2px solid #45475a;
+                border-radius: 8px;
+                padding: 10px;
+                color: #ffffff;
+                font-size: 16px;
+            }
+            QLineEdit:focus {
+                border: 2px solid #89b4fa;
+            }
+            QPushButton {
+                background-color: #45475a;
+                border: none;
+                border-radius: 8px;
+                padding: 12px;
+                font-weight: bold;
+                font-size: 16px;
+            }
+            QPushButton:hover {
+                background-color: #585b70;
+            }
+            QPushButton:pressed {
+                background-color: #89b4fa;
+                color: #1e1e2e;
+            }
+            QLabel {
+                font-size: 17px;
+                font-weight: bold;
+                padding-top: 10px;
+                color: #a6e3a1;
+            }
+        """)
 
     def calculate(self, operation):
         try:
